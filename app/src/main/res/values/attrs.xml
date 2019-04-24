@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="UseImageView">
+        <attr name="wh" format="float"/>
+        <attr name="ratio_wh" format="float" />
+    </declare-styleable>
+</resources>
