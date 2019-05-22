@@ -37,14 +37,7 @@ public class Recycleviewoneadapter extends RecyclerView.Adapter<Recycleviewonead
 
     @Override
     public void onBindViewHolder(@NonNull Recycleviewoneadapter.viewholder holder, int position) {
-        FileInputStream fileInputStream = null;
-        try {
-            fileInputStream = context.openFileInput(filepath.get(position));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        bitmap = BitmapFactory.decodeStream(fileInputStream);
-        Glide.with(context).load(bitmap).into(holder.imageView);
+        Glide.with(context).load(filepath.get(filepath.size()-position-1)).into(holder.imageView);
     }
 
     @Override

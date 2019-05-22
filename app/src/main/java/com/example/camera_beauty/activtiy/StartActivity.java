@@ -1,8 +1,10 @@
 package com.example.camera_beauty.activtiy;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
 import com.example.camera_beauty.R;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class StartActivity extends AppCompatActivity {
 

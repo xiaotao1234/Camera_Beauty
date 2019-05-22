@@ -181,7 +181,7 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
 
         private int mPreviewFormat = RGBA;
         private CvCameraViewListener mOldStyleListener;
-    };
+    }
 
     /**
      * This class interface is abstract representation of single frame from camera for onCameraFrame callback
@@ -432,8 +432,12 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
         if (modified != null) {
             try {
                 Utils.matToBitmap(modified, mCacheBitmap);
+                Log.e("xiaoxiaoxiao", "Bitmap type: " + mCacheBitmap.getWidth() + "*" + mCacheBitmap.getHeight());
+
                 if(setgpuimager!=null){
+                    Log.e(TAG, "Bitmap type: " + mCacheBitmap.getWidth() + "*" + mCacheBitmap.getHeight());
                     mCacheBitmap = setgpuimager.setgpuimagelistener(mCacheBitmap);
+                    Log.e("xiaoxiaoxiao", "Bitmap type: " + mCacheBitmap.getWidth() + "*" + mCacheBitmap.getHeight());
                 }
             } catch(Exception e) {
                 Log.e(TAG, "Mat type: " + modified);

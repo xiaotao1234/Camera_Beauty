@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="145dp"
+    android:orientation="vertical"
     android:padding="2dp">
-    <androidx.cardview.widget.CardView
+    <ImageView
+        android:id="@+id/listview"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="5dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/listview"/>
-        <CheckBox
-            android:layout_gravity="end"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/image_check"
-            android:visibility="invisible" />
-    </androidx.cardview.widget.CardView>
-</LinearLayout>
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/image_check"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="end"
+        android:focusable="true"
+        android:clickable="true"
+        android:visibility="invisible"
+        android:src="@drawable/bg_contact_cb_selector"
+        />
+</FrameLayout>

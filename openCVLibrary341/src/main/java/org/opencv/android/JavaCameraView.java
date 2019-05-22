@@ -265,15 +265,12 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
         Log.d(TAG, "Connecting to camera");
         if (!initializeCamera(width, height))
             return false;
-
         mCameraFrameReady = false;
-
         /* now we can start update thread */
         Log.d(TAG, "Starting processing thread");
         mStopThread = false;
         mThread = new Thread(new CameraWorker());
         mThread.start();
-
         return true;
     }
 
@@ -312,14 +309,6 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
             Log.d(TAG, "Preview Frame received. Frame size: " + frame.length);
         synchronized (this) {
             mFrameChain[mChainIdx].put(0, 0, frame);
-//            Mat mat = new Mat();
-//            Core.rotate(mFrameChain[mChainIdx],mat,Core.ROTATE_90_CLOCKWISE);
-//            mFrameChain[mChainIdx] = mat;
-//            Configuration configuration = this.getResources().getConfiguration();
-////            if(configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
-////                Core.rotate(mFrameChain[mChainIdx],mat,Core.ROTATE_90_CLOCKWISE);
-////            }
-////            mFrameChain[mChainIdx] = mat;
             mCameraFrameReady = true;
             this.notify();
         }
@@ -362,7 +351,7 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
         private Mat mRgba;
         private int mWidth;
         private int mHeight;
-    };
+    }
 
     private class CameraWorker implements Runnable {
 

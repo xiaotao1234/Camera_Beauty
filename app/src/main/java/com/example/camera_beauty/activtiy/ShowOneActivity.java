@@ -1,24 +1,27 @@
 package com.example.camera_beauty.activtiy;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.util.DisplayMetrics;
+import android.view.View;
 
 import com.example.camera_beauty.R;
 import com.example.camera_beauty.adapter.Recycleviewoneadapter;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSmoothScroller;
+import androidx.recyclerview.widget.LinearSnapHelper;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SnapHelper;
 
 public class ShowOneActivity extends AppCompatActivity {
     private ArrayList<String> filename;
     RecyclerView recyclerView;
+    private static final float MILLISECONDS_PER_INCH = 40f;
     Recycleviewoneadapter recycleviewoneadapter;
     private int currentid;
     @Override
@@ -32,7 +35,9 @@ public class ShowOneActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(linearLayoutManager);
+        LinearSnapHelper linearSnapHelper = new LinearSnapHelper();
+        linearSnapHelper.attachToRecyclerView(recyclerView);
+        recyclerView.scrollToPosition(currentid);
         recyclerView.setAdapter(recycleviewoneadapter);
-        recyclerView.smoothScrollToPosition(currentid);
     }
 }

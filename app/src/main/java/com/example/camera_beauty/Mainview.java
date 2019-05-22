@@ -47,10 +47,10 @@ public class Mainview extends RelativeLayout {
                 break;
             case MotionEvent.ACTION_UP:
                 int y = (int) event.getRawY();
-                if(downy-y>30){
+                if(downy-y>80){
                     upListener1.itemuplistener();
                 }
-                if(y-downy>30){
+                if(y-downy>80){
                     upListener1.itemdownlistener();
                 }
                 break;

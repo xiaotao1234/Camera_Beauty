@@ -19,6 +19,7 @@ public class Point {
         set(vals);
     }
 
+
     public void set(double[] vals) {
         if (vals != null) {
             x = vals.length > 0 ? vals[0] : 0;
