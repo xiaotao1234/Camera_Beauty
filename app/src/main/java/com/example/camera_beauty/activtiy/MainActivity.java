@@ -146,6 +146,7 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
     private Mat bgmat;
     private int widthbg;
     private int heightbg;
+    private Boolean allowin;
 
     public void setfilter(filteraddlistener filteraddlistener1){
         this.filteraddlistener1 = filteraddlistener1;
@@ -188,6 +189,7 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
 
     public void initview(){
         showtimeout = findViewById(R.id.showtimeout);
+        showtimeout.setSystemUiVisibility(View.INVISIBLE);
         delay_3 = findViewById(R.id.delay_3);
         delay_5 = findViewById(R.id.delay_5);
         delay_10 = findViewById(R.id.delay_10);
@@ -284,8 +286,11 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
                 R.drawable.emoji9,
                 R.drawable.emoji10,
                 R.drawable.emoji11,
-                R.drawable.emoji12,
-                R.drawable.emoji13
+                R.drawable.emoji13,
+                R.drawable.emoji14,
+                R.drawable.emoji15,
+                R.drawable.emoji16,
+                R.drawable.ban
         };
         earlist = new int[]{
                 R.drawable.ear1,
@@ -297,7 +302,8 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
                 R.drawable.ear9,
                 R.drawable.ear10,
                 R.drawable.ear11,
-                R.drawable.ear12
+                R.drawable.ear12,
+                R.drawable.ban
         };
         earelist = new int[]{
                 R.drawable.eare1,
@@ -308,6 +314,7 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
                 R.drawable.ear6bg
         };
         mainbglist = new int[]{
+                R.drawable.ban,
                 R.drawable.mainbg1,
                 R.drawable.mainbg2,
                 R.drawable.mainbg3,
@@ -598,6 +605,7 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
             Log.e(TAG, "OpenCV init error");
         }
         initializeOpenCVDependencies();
+        recyclerView.setSystemUiVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -624,17 +632,21 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
     public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame) {
         mat1 = new Mat();
         mat = new Mat();
-        bgmat = new Mat();
-        bitmapbg = BitmapFactory.decodeResource(getResources(),mainbglist[bgsource]);
-        widthbg = bitmapbg.getWidth();
-        heightbg = bitmapbg.getHeight();
-        Log.d("xiaotaoxiao",widthbg+":"+heightbg);
-        float scalewbg = (float) 1072/widthbg;
-        float scalehbg = (float) 1072/heightbg;
-        Matrix matrixbg = new Matrix();
-        matrixbg.postScale(scalewbg,scalehbg);
-        bitmapbg = Bitmap.createBitmap(bitmapbg, 0, 0, widthbg, heightbg, matrixbg,true);
-        Utils.bitmapToMat(bitmapbg,bgmat);
+        allowin = false;
+        if(mainbglist[bgsource]!=R.drawable.ban){
+            bgmat = new Mat();
+            bitmapbg = BitmapFactory.decodeResource(getResources(),mainbglist[bgsource]);
+            widthbg = bitmapbg.getWidth();
+            heightbg = bitmapbg.getHeight();
+            Log.d("xiaotaoxiao",widthbg+":"+heightbg);
+            float scalewbg = (float) 1072/widthbg;
+            float scalehbg = (float) 1072/heightbg;
+            Matrix matrixbg = new Matrix();
+            matrixbg.postScale(scalewbg,scalehbg);
+            bitmapbg = Bitmap.createBitmap(bitmapbg, 0, 0, widthbg, heightbg, matrixbg,true);
+            Utils.bitmapToMat(bitmapbg,bgmat);
+            allowin = true;
+        }
         mRgba = inputFrame.rgba(); //RGBA
         mGray = inputFrame.gray(); //单通道灰度图
         mat1 = mGray;
@@ -728,7 +740,10 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
         }
         mat = filterset(mat);
         Core.flip(mat, mat,1);
-        Core.addWeighted(mat,0.6,bgmat,0.4,0,mat);
+        if(mainbglist[bgsource]!=R.drawable.ban&&allowin==true)
+        {
+            Core.addWeighted(mat,0.6,bgmat,0.4,0,mat);
+        }
         return mat;
     }
     public static int markfilter = 0;

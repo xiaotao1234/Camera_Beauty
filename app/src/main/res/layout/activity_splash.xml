@@ -9,6 +9,6 @@
         android:layout_height="match_parent"
         android:id="@+id/ll_content"
         app:wh="0.5625"
-        android:src="@drawable/splash_back"
+        android:src="@drawable/splash_back1"
         />
 </LinearLayout>

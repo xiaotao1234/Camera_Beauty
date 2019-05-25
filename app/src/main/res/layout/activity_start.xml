@@ -3,9 +3,61 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bz1"
     android:orientation="vertical">
-    <com.example.camera_beauty.ui.UseImageView
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.example.camera_beauty.ui.UseImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/banner"
+            app:wh="1.46"/>
+        <ImageView
+            android:id="@+id/set"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/sett"
+            android:layout_gravity="end"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"/>
+    </FrameLayout>
+    <LinearLayout
+        android:layout_marginTop="60dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:wh="1"/>
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/camera"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical"
+            android:background="@drawable/bgtm"
+            android:padding="20dp">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/camera_icon"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/gallery"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:background="@drawable/bgtm"
+            android:padding="20dp">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/mygalleryicon"/>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout> 

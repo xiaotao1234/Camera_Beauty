@@ -22,6 +22,13 @@ public class Recycleviewoneadapter extends RecyclerView.Adapter<Recycleviewonead
     Context context;
     ArrayList<String> filepath;
     Bitmap bitmap = null;
+    public setbg setbger;
+    public void setSetbger(setbg setbger){
+        this.setbger = setbger;
+    }
+    public interface setbg{
+        public void setbglistener();
+    }
     public Recycleviewoneadapter(ArrayList<String> filepath) {
         this.filepath = filepath;
     }
@@ -38,6 +45,12 @@ public class Recycleviewoneadapter extends RecyclerView.Adapter<Recycleviewonead
     @Override
     public void onBindViewHolder(@NonNull Recycleviewoneadapter.viewholder holder, int position) {
         Glide.with(context).load(filepath.get(filepath.size()-position-1)).into(holder.imageView);
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setbger.setbglistener();
+            }
+        });
     }
 
     @Override

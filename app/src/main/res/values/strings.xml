@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Camera_Beauty</string>
+    <string name="zttesxt">状态栏</string>
+    <string name="settexttitle">设置</string>
 </resources>

@@ -1,12 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.camera_beauty.Mainview xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/oneall"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#000000">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/show_one"
-        android:layout_gravity="center"
+    android:background="#BBFFFFFF">
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/show_one"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:id="@+id/onebottom"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="裁剪"
+                android:background="@drawable/bganniu"
+                android:textStyle="bold"
+                android:gravity="center"/>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#66FFFFFF"/>
+            <TextView
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/bganniu"
+                android:text="缩放"
+                android:textStyle="bold"
+                android:gravity="center"/>
+        </LinearLayout>
+    </FrameLayout>
+</com.example.camera_beauty.Mainview>
