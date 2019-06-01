@@ -51,6 +51,20 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+        <CheckBox
+            android:id="@+id/check_light_on_off1"
+            android:layout_width="32dp"
+            android:layout_height="18dp"
+            android:button="@null"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/seticonbg"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center"/>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
@@ -78,6 +92,20 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+        <CheckBox
+            android:id="@+id/check_light_on_off2"
+            android:layout_width="32dp"
+            android:layout_height="18dp"
+            android:button="@null"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/seticonbg"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center"/>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
@@ -105,6 +133,20 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+        <CheckBox
+            android:id="@+id/check_light_on_off3"
+            android:layout_width="32dp"
+            android:layout_height="18dp"
+            android:button="@null"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/seticonbg"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center"/>
 </LinearLayout>
     <View
         android:layout_width="match_parent"
@@ -132,6 +174,20 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+        <CheckBox
+            android:id="@+id/check_light_on_off4"
+            android:layout_width="32dp"
+            android:layout_height="18dp"
+            android:button="@null"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/seticonbg"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center"/>
 </LinearLayout>
     <View
         android:layout_width="match_parent"
@@ -159,5 +215,19 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+        <CheckBox
+            android:id="@+id/check_light_on_off5"
+            android:layout_width="32dp"
+            android:layout_height="18dp"
+            android:button="@null"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/seticonbg"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center"/>
 </LinearLayout>
 </LinearLayout>

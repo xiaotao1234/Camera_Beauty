@@ -36,6 +36,8 @@ import com.example.camera_beauty.adapter.RecyclemainbgAdapter;
 import com.example.camera_beauty.adapter.RecycleviewmainBottomadapter;
 import com.example.camera_beauty.adapter.earadapter;
 import com.example.camera_beauty.adapter.emojionadapter;
+import com.example.camera_beauty.ui.CircleImageView;
+
 import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.android.Utils;
@@ -56,6 +58,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -76,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
     private int absoluteFaceSize = 0;
     private Take_a_photo_view getphoto;
     RecycleviewmainBottomadapter f;
-    private ImageView show;
+    private CircleImageView show;
     private LinearLayout delayimage;
     private ArrayList<String> filename = new ArrayList<>();
     private ArrayList<String> filenameshow = new ArrayList<>();
@@ -147,6 +151,7 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
     private int widthbg;
     private int heightbg;
     private Boolean allowin;
+    private volatile int num;
 
     public void setfilter(filteraddlistener filteraddlistener1){
         this.filteraddlistener1 = filteraddlistener1;
@@ -274,6 +279,20 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void initevents(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true){
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Log.d("timesout","FPS:"+num);
+                    num = 0;
+                }
+            }
+        }).start();
         emojexhi = new int[]{
                 R.drawable.emoji1,
                 R.drawable.emoji2,
@@ -744,8 +763,10 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
         {
             Core.addWeighted(mat,0.6,bgmat,0.4,0,mat);
         }
+        num = num+2;
         return mat;
     }
+
     public static int markfilter = 0;
     public static int seekbarnum = 1;
     public Mat filterset(Mat mat){
